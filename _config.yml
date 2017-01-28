@@ -26,6 +26,7 @@ widgets:
   ##- recent_comments
   ##- weibo
   - links
+  - notice
 
 # Static files
 js: js
