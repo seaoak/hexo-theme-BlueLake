@@ -1,0 +1,48 @@
+.widget
+  if theme.about.photo_path
+    img(src=url_for(theme.about.photo_path) alt='self photo')
+  else if theme.about.photo_url
+    img(src='#{theme.about.photo_url}' alt='self photo')
+  else
+    .widget-title
+      i(class='fa fa-user')= ' ' + __('intro')
+  if config.author
+    p
+      a(href=url_for('.'))= config.author
+    hr
+  p
+    span 「クエルクス・マリス」です。お気軽に「まりす」とお呼びください。
+    span ハイランダー♀です。
+    span Beta3 から新生 FF14 で遊んでいます。
+    span サーバは Garuda (Elemental)。
+    a(href='http://omisokingdom.ikaduchi.com') FC「OMISO KINGDOM」
+    span 所属。
+    span 園芸＆採掘が好きです。クラフターもひととおりやってます。
+    span バトルは白魔道士がメインでサブが吟遊詩人。
+    span SS 加工にちょっと興味があります。
+  hr
+  ul
+    if theme.about.lodestone_id
+      li
+        span(class='fa fa-right')  Lodestone: 
+        a(href='http://jp.finalfantasyxiv.com/lodestone/character/#{theme.about.lodestone_id}/')= theme.about.lodestone_id
+    if theme.about.twitter_name
+      li
+        span(class='fa fa-right')  Twitter: 
+        a(href='https://twitter.com/#{theme.about.twitter_name}')= '@' + theme.about.twitter_name
+    if theme.about.weibo_url && theme.about.weibo_name
+      li
+        span(class='fa fa-right')  Weibo: 
+        a(href='#{theme.about.weibo_url}')= theme.about.weibo_name
+    if theme.about.github_name
+      li
+        span(class='fa fa-right')  GitHub: 
+        a(href='https://github.com/#{theme.about.github_name}')= theme.about.github_name
+    if theme.about.email
+      li
+        span(class='fa fa-right')  E-mail: 
+        a(href='mailto:#{theme.about.email}')= theme.about.email
+  if theme.about.email_image_path
+    img(src=url_for(theme.about.email_image_path) alt='')
+  if theme.about.email_image_url
+    img(src='#{theme.about.email_image_url}' alt='')
