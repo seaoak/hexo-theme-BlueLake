@@ -1,14 +1,20 @@
 #footer
   .footer-info
     p
-      a(href="/baidusitemap.xml") Baidu Sitemap
-      |  |
-      a(href="/atom.xml") RSS
-      |  |
-      span 連絡先：
-        a.fa.fa-email(href="mailto:#{theme.about.email}",target="_blank") 
-        a.fa.fa-weibo(href="#{theme.about.weibo_url}",target="_blank")
-        a.fa.fa-github(href="#{theme.about.github_url}",target="_blank") 
+      if theme.baidusitemap
+        a(href="/baidusitemap.xml") Baidu Sitemap
+        |  |
+      if theme.feed
+        a(href="/atom.xml") RSS
+        |  |
+      if theme.about.email || theme.about.weibo_url || theme.about.github_url
+        span 連絡先：
+          if theme.about.email
+            a.fa.fa-email(href="mailto:#{theme.about.email}",target="_blank") 
+          if theme.about.weibo_url
+            a.fa.fa-weibo(href="#{theme.about.weibo_url}",target="_blank")
+          if theme.about.github_url
+            a.fa.fa-github(href="#{theme.about.github_url}",target="_blank") 
     p
       span  Copyright &copy;
         a(href=url_for('.'), rel='nofollow')= config.author || config.title + '.'
