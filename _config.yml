@@ -48,6 +48,10 @@ sitemap:
 ##baidusitemap:
 ##  path: baidusitemap.xml
 
+#Archive widgit
+archive_type: monthly
+archive_date_format: YYYY年M月
+
 #Local search
 local_search: true ## Use a javascript-based local search engine, true/false.
 swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
