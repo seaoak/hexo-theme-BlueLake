@@ -4,6 +4,9 @@
       if theme.baidusitemap
         a(href=url_for(theme.baidusitemap.path)) Baidu Sitemap
         |  |
+      if theme.sitemap
+        a(href=url_for(theme.sitemap.path)) Sitemap
+        |  |
       if theme.feed
         a(href=url_for(theme.feed.path)) RSS
         |  |
