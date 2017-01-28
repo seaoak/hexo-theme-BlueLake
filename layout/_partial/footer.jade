@@ -2,10 +2,10 @@
   .footer-info
     p
       if theme.baidusitemap
-        a(href="/baidusitemap.xml") Baidu Sitemap
+        a(href=url_for(theme.baidusitemap.path)) Baidu Sitemap
         |  |
       if theme.feed
-        a(href="/atom.xml") RSS
+        a(href=url_for(theme.feed.path)) RSS
         |  |
       if theme.about.email || theme.about.weibo_url || theme.about.github_url
         span 連絡先：
