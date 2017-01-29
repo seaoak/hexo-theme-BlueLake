@@ -51,6 +51,5 @@ html(lang='#{config.language}')
           .layout-r.hidden_mid_and_down: #sidebar
             each item in theme.widgets
               != partial('_widget/' + item + '.jade')
-      include _partial/totop
       include _partial/footer
     include _partial/after_footer

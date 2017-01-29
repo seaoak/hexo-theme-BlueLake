@@ -732,40 +732,6 @@ body
       margin-left: 0px
     .tite 
       padding: 0 5px 0 10px
-/* back-to-top */
-@media print,screen and (min-width: 48em)
-  #totop
-    position: fixed
-    right: 50px
-    bottom: 50px
-    display: block
-    visibility: hidden
-    width: 32px;
-    height: 54px;
-    line-height: 56px;
-    overflow: hidden
-    color: #40759b;
-    text-align center
-    text-shadow: 0px 2px 2px #40759b
-    opacity: 0
-    -webkit-transition: visibility 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), opacity 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), -webkit-transform 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335)
-    -moz-transition: visibility 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), opacity 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), -moz-transform 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335)
-    transition: visibility 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), opacity 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335), transform 0.6s cubic-bezier(0.6, 0.04, 0.98, 0.335)
-    &:before
-      font-family: "iconfont"!important
-      content '\e00c'
-      font-size 54px
-      margin-left: -.2em
-    &.launch
-      opacity: 0
-      -webkit-transform: translateY(-500px)
-      -moz-transform: translateY(-500px)
-      -ms-transform: translateY(-500px)
-      transform: translateY(-500px)
-      pointer-events: none
-    &.show
-      visibility: visible
-      opacity: 1
 /* page navigator */
 .page-navigator
   list-style: none
