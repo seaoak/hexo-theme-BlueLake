@@ -22,11 +22,11 @@
       if theme.widgets.includes('notice')
         if config.author
           span Made by 
-            a(href=url_for('.'), rel='nofollow')= config.author
+            a(href=url_for(''), rel='nofollow')= config.author
           |  |  
       else
         span Copyright &copy; 
-          a(href=url_for('.'), rel='nofollow')= config.author || config.title
+          a(href=url_for(''), rel='nofollow')= config.author || config.title
         |  |  
       span Powered by 
         a(rel='nofollow', target='_blank', href='https://hexo.io') Hexo
