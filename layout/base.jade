@@ -44,6 +44,10 @@ html(lang='#{config.language}')
               obj['nofollow'] = true;
               obj['noreferrer'] = true;
             }
+            if (obj['noreferer']) {
+              console.warn('maybe typo: "noreferer" should be "noreferrer"');
+              console.warn(e);
+            }
             e.setAttribute('rel', Object.keys(obj).join(' '));
             if (! e.getAttribute('target')) {
                 e.setAttribute('target', '_blank');
