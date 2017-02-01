@@ -9,22 +9,9 @@
     var keyInput = document.getElementById('search-key'),
         searchForm = document.getElementById('search-form'),
         searchWrap = document.getElementById('result-wrap'),
-        searchMask = document.getElementById('result-mask'),
         searchResult = document.getElementById('search-result'),
         searchTpl = document.getElementById('search-tpl').innerHTML,
-        winWidth, winHeight, searchData;
-    if (window.innerWidth) {
-        winWidth = parseInt(window.innerWidth);
-    } else if ((document.body) && (document.body.clientWidth)) {
-        winWidth = parseInt(document.body.clientWidth);
-    }
-    if (window.innerHeight) {
-        winHeight = parseInt(window.innerHeight);
-    } else if ((document.body) && (document.body.clientHeight)) {
-        winHeight = parseInt(document.body.clientHeight);
-    }
-    searchMask.style.width = winWidth + 'px';
-    searchMask.style.height = winHeight + 'px';
+        searchData;
     function loadData(success) {
         if (!searchData) {
             var xhr = new XMLHttpRequest();
@@ -95,7 +82,6 @@
         var key = this.value.trim();
         if (!key) {
             addClass(searchWrap, 'hide');
-            addClass(searchMask, 'hide');
             return;
         }
         var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
@@ -107,7 +93,6 @@
         });
         e.preventDefault();
         removeClass(searchWrap, 'hide');
-        removeClass(searchMask, 'hide');
     }
     function handlerForEscKey(e) {
         // 'keypress' event is never fired for ESC key.
@@ -121,11 +106,17 @@
         this.value = '';
         search.call(this, null);
     }
+    function handlerForClick(e) {
+        if (e.defaultPrevented) {
+            return;
+        }
+        if (searchForm.contains(e.target)) {
+            return;
+        }
+        addClass(searchWrap, 'hide');
+    }
     keyInput.addEventListener('focus', search);
     keyInput.addEventListener('input', search);
     keyInput.addEventListener('keydown', handlerForEscKey);
-    searchMask.onclick=function(){
-        addClass(searchWrap, 'hide');
-        addClass(searchMask, 'hide');
-    };
+    window.addEventListener('click', handlerForClick);
 })();})();
