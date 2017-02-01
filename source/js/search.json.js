@@ -108,10 +108,6 @@
         e.preventDefault();
         removeClass(searchWrap, 'hide');
         removeClass(searchMask, 'hide');
-        keyInput.onfocus=function() {
-            removeClass(searchWrap, 'hide');
-            removeClass(searchMask, 'hide');
-        };
     }
     function handlerForEscKey(e) {
         // 'keypress' event is never fired for ESC key.
@@ -125,10 +121,9 @@
         this.value = '';
         search.call(this, null);
     }
-    keyInput.onfocus=function(){
-        keyInput.addEventListener('input', search);
-        keyInput.addEventListener('keydown', handlerForEscKey);
-    };
+    keyInput.addEventListener('focus', search);
+    keyInput.addEventListener('input', search);
+    keyInput.addEventListener('keydown', handlerForEscKey);
     searchMask.onclick=function(){
         addClass(searchWrap, 'hide');
         addClass(searchMask, 'hide');
