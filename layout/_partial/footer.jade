@@ -13,11 +13,11 @@
       if theme.about.email || theme.about.weibo_url || theme.about.github_url
         span Contact 
           if theme.about.email
-            a.fa.fa-email(href="mailto:#{theme.about.email}",target="_blank")
+            a.fa.fa-email(href="mailto:#{theme.about.email}")
           if theme.about.weibo_url
-            a.fa.fa-weibo(href="#{theme.about.weibo_url}",target="_blank")
+            a.fa.fa-weibo(href="#{theme.about.weibo_url}")
           if theme.about.github_url
-            a.fa.fa-github(href="#{theme.about.github_url}",target="_blank")
+            a.fa.fa-github(href="#{theme.about.github_url}")
         |  |  
       if theme.widgets.includes('notice')
         if config.author
@@ -29,9 +29,9 @@
           a(href=url_for(''))= config.author || config.title
         |  |  
       span Powered by 
-        a(target='_blank', href='https://hexo.io') Hexo
+        a(href='https://hexo.io') Hexo
       |  |  
       span
-        a(target='_blank', href='https://github.com/chaooo/hexo-theme-BlueLake') Theme
+        a(href='https://github.com/chaooo/hexo-theme-BlueLake') Theme
         |  by 
-        a(target='_blank', href='https://github.com/chaooo') Charles
+        a(href='https://github.com/chaooo') Charles
