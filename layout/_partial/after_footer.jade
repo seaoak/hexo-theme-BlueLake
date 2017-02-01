@@ -23,7 +23,7 @@ if theme.disqus
   script(id='dsq-count-scr', src='//#{theme.disqus}.disqus.com/count.js', async)
 
 if theme.local_search == true
-  script(type='text/javascript', src=url_for(theme.js) + '/search.json.js' + '?v=' + theme.version)
+  script(type='text/javascript', src=url_for(theme.js) + '/search.json.js' + '?v=' + theme.version, async)
 
 if theme.tinysou
   script.

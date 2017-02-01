@@ -1,4 +1,11 @@
-(function() {
+(function() { (function mainOfSearchJSON() {
+    'use strict';
+    if (document.readyState !== 'complete') {
+        // Multiple identical event listeners are safe:
+        // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Multiple_identical_event_listeners
+        document.addEventListener('readystatechange', mainOfSearchJSON, false);
+        return;
+    }
     var keyInput = document.getElementById('search-key'),
         searchForm = document.getElementById('search-form'),
         searchWrap = document.getElementById('result-wrap'),
@@ -111,4 +118,4 @@
         addClass(searchWrap, 'hide');
         addClass(searchMask, 'hide');
     };
-})();
+})();})();
