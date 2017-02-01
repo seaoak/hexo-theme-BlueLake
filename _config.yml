@@ -81,10 +81,24 @@ about:
 links:
   - title: FINAL FANTASY XIV 公式
     url: http://finalfantasyxiv.com
-  - title: my Lodestone
-    url: http://jp.finalfantasyxiv.com/lodestone/character/1662597/
-  - title: my GitHub
-    url: https://github.com/quercus2011
+  - title: The Lodestone
+    url: http://jp.finalfantasyxiv.com/lodestone/
+  - title: YouTube 公式チャンネル
+    url: https://www.youtube.com/user/FINALFANTASYXIV
+  - title: FF14 ERIONES
+    url: https://eriones.com
+  - title: FINAL FANTASY XIV n Wiki
+    url: http://ff14n.wikiwiki.jp
+  - title: FF14 Online Wiki
+    url: http://ff14wiki.info
+  - title: MIRAPRI SNAP
+    url: http://mirapri.com
+  - title: FF14 チャンネル（公式）
+    url: http://www.finalfantasyxiv.com/14channel/
+  - title: 学園エオルゼア（公式）
+    url: http://www.finalfantasyxiv.com/gakuen_eorzea/
+  - title: 俺の嫁にFF14をヤらせてみた
+    url: https://www.youtube.com/channel/UClCX07C8RPjVRqXzS8H0Y3g
 
 # Miscellaneous
 show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
