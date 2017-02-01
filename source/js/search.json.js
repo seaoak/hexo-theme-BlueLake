@@ -100,7 +100,10 @@
         if (e.defaultPrevented) {
             return;
         }
-        if (e.key !== 'Escape') {
+        if (e.type.toLowerCase() === 'keydown' && e.key !== 'Escape') {
+            return;
+        }
+        if (e.type.toLowerCase() === 'keypress' && e.key !== 'Esc') { // for IE11
             return;
         }
         this.value = '';
@@ -118,5 +121,6 @@
     keyInput.addEventListener('focus', search);
     keyInput.addEventListener('input', search);
     keyInput.addEventListener('keydown', handlerForEscKey);
+    keyInput.addEventListener('keypress', handlerForEscKey);
     window.addEventListener('click', handlerForClick);
 })();})();
