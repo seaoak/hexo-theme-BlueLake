@@ -40,6 +40,10 @@ html(lang='#{config.language}')
               .reduce(function(acc, val) { acc[val] = true; return acc; }, {});
             obj['external'] = true;
             obj['noopener'] = true;
+            if (obj['noreferrer'] || obj['nofollow']) {
+              obj['nofollow'] = true;
+              obj['noreferrer'] = true;
+            }
             e.setAttribute('rel', Object.keys(obj).join(' '));
             if (! e.getAttribute('target')) {
                 e.setAttribute('target', '_blank');
