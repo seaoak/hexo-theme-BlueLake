@@ -30,7 +30,7 @@ html(lang='#{config.language}')
     if config.external_link
       script.
         document.addEventListener('DOMContentLoaded', function() {
-          Array.prototype.forEach.call(document.querySelectorAll('a'), function(e) {
+          Array.prototype.forEach.call(document.getElementsByTagName('a'), function(e) {
             if (! e.getAttribute('href')) return;
             if (! e.getAttribute('href').match(/^\s*(https?:)?\/\//i)) return;
             var obj = (e.getAttribute('rel') || '')
