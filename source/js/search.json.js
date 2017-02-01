@@ -94,6 +94,8 @@
     function search(e) {
         var key = this.value.trim();
         if (!key) {
+            addClass(searchWrap, 'hide');
+            addClass(searchMask, 'hide');
             return;
         }
         var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
