@@ -113,8 +113,21 @@
             removeClass(searchMask, 'hide');
         };
     }
+    function handlerForEscKey(e) {
+        // 'keypress' event is never fired for ESC key.
+        // 'keyup' event is emitted when the input should be captured by IME.
+        if (e.defaultPrevented) {
+            return;
+        }
+        if (e.key !== 'Escape') {
+            return;
+        }
+        this.value = '';
+        search.call(this, null);
+    }
     keyInput.onfocus=function(){
         keyInput.addEventListener('input', search);
+        keyInput.addEventListener('keydown', handlerForEscKey);
     };
     searchMask.onclick=function(){
         addClass(searchWrap, 'hide');
