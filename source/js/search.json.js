@@ -66,22 +66,16 @@
             return data[prop] || '';
         });
     }
-    function hasClass(obj, cls) {
-        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+    function hide() {
+        searchWrap.classList.add('hide');
     }
-    function addClass(obj, cls) {
-        if (!hasClass(obj, cls)) obj.className += " " + cls;
-    }
-    function removeClass(obj, cls) {
-        if (hasClass(obj, cls)) {
-            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
-            obj.className = obj.className.replace(reg, ' ');
-        }
+    function show() {
+        searchWrap.classList.remove('hide');
     }
     function search(e) {
         var key = this.value.trim();
         if (!key) {
-            addClass(searchWrap, 'hide');
+            hide();
             return;
         }
         var regExp = new RegExp(key.replace(/[ ]/g, '|'), 'gmi');
@@ -92,7 +86,7 @@
             render(result);
         });
         e.preventDefault();
-        removeClass(searchWrap, 'hide');
+        show();
     }
     function handlerForEscKey(e) {
         // 'keypress' event is never fired for ESC key.
@@ -116,7 +110,7 @@
         if (searchForm.contains(e.target)) {
             return;
         }
-        addClass(searchWrap, 'hide');
+        hide();
     }
     keyInput.addEventListener('focus', search);
     keyInput.addEventListener('input', search);
