@@ -27,30 +27,56 @@ html(lang='#{config.language}')
     //- link(rel='apple-touch-icon-precomposed', href=url_for('apple-touch-icon.png'))
     if config.feed
       link(rel='alternate', type=feed_type, href=url_for(config.feed.path))
-    if config.external_link
+    if true
       script.
+        'use strict';
         document.addEventListener('DOMContentLoaded', function() {
+          var config_root = '#{config.root}'.trim();
+          var config_external_link = '#{config.external_link}'.trim().toLowerCase();
+          if (config_root[0] !== '/') {
+            console.warn('WARNING: Hexo: the value of "root:" in _config.yml is invalid (should start with "/").');
+            config_root = '/' + config_root;
+          }
+          if (config_root[config_root.length-1] !== '/') {
+            console.warn('WARNING: Hexo: the value of "root:" in _config.yml is invalid (should end with "/").');
+            config_root = config_root + '/';
+          }
+          if (! config_external_link.match(/^(?:true|false|)$/)) {
+            console.warn('WARNING: Hexo: the value of "external_link:" in _config.yml is invalid (should be true or false).');
+          }
+          var is_aggressive_mode = config_external_link === 'true';
+          var is_allowed_different_root = false;
+          var is_allowed_other_scheme = true;
           Array.prototype.forEach.call(document.getElementsByTagName('a'), function(e) {
-            if (! e.getAttribute('href')) return;
-            if (! e.getAttribute('href').match(/^\s*(https?:)?\/\//i)) return;
+            var href = (e.getAttribute('href') || '').trim();
+            if (! href) return;
+            var is_external_link = href.match(/^(https?:)?\/\//i) ||
+                                   (href[0] === '/' && ! is_allowed_different_root && href.substr(0, config_root.length) !== config_root) ||
+                                   (href[0] !== '/' && ! is_allowed_other_scheme && ! herf.match(/^(?:javascript|data|file|urn):/i));
+            var is_opening_new_window = e.getAttribute('target') ? ! e.getAttribute('target').match(/^(?:_self|_parent|_top)$/)
+                                                                 : (is_aggressive_mode && is_external_link);
             var obj = (e.getAttribute('rel') || '')
               .toLowerCase()
               .split(/\s+/)
               .filter(function(e) { return e; })
               .reduce(function(acc, val) { acc[val] = true; return acc; }, {});
-            obj['external'] = true;
-            obj['noopener'] = true;
-            if (obj['noreferrer'] || obj['nofollow']) {
-              obj['nofollow'] = true;
+            if (obj['noreferer']) {
+              console.warn('maybe typo: "noreferer" should be "noreferrer".');
+              console.warn(e);
               obj['noreferrer'] = true;
             }
-            if (obj['noreferer']) {
-              console.warn('maybe typo: "noreferer" should be "noreferrer"');
-              console.warn(e);
+            if (is_aggressive_mode && is_external_link) obj['external'] = true;
+            if (is_opening_new_window) obj['noopener'] = true;
+            if (obj['noreferrer'] || obj['nofollow']) {
+              obj['noreferrer'] = true;
+              obj['nofollow'] = true;
             }
-            e.setAttribute('rel', Object.keys(obj).join(' '));
-            if (! e.getAttribute('target')) {
-                e.setAttribute('target', '_blank');
+            var result = Object.keys(obj).join(' ');
+            if (result) {
+              e.setAttribute('rel', result);
+            }
+            if (is_opening_new_window && ! e.getAttribute('target')) {
+              e.setAttribute('target', '_blank');
             }
           });
         }, false);
