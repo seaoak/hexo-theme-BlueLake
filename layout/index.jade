@@ -3,6 +3,9 @@ extends base
 
 block title
   title= config.title
+block link_canonical
+  if url_for(page.path).match(/^\/(?:index\.html?)?$/)
+    link(rel='canonical', href=url_for(page.path).replace(/index\.html?$/, ''))
 block content
 
   for post in page.posts.toArray()

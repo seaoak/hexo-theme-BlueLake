@@ -3,6 +3,9 @@ extends base
 block title
   title= page.title + ' - ' + config.title
 
+block link_canonical
+  link(rel='canonical', href=url_for(page.path).replace(/index\.html?$/, ''))
+
 block content
   .post
     h1.post-title= page.title
