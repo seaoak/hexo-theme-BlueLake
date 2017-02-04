@@ -30,6 +30,7 @@ a
     outline: none
   &:hover,&:active
     color: #40759b
+    text-decoration: underline
 .clear
   clear: both
 .hide 
@@ -263,6 +264,8 @@ body
         color: #FFF
         text-shadow: 1px 3px 6px #ccccff
         margin-left: -0.2em
+        &:hover,&:active
+          text-decoration: none
     .description
       margin: 0.6em 0 0 0
       color: #FFF
@@ -281,7 +284,8 @@ body
     color: #FFF
     font-size: 16px
     border: 1px solid transparent
-    &:hover,&.current
+    &:hover,&:active,&.current
+      text-decoration: none
       border-bottom: 1px solid #fff
       -webkit-box-shadow: 0 0 10px #adc2d7 inset
       box-shadow: 0 0 10px #adc2d7 inset
@@ -297,10 +301,6 @@ body
     box-shadow: 1px 2px 3px #adc2d7
     border: 1px solid #adc2d7
     background: #FFF
-    a 
-      color:#40759b
-      &:hover 
-        text-decoration underline
     .widget-title,.comments-title
       color: #40759b
       line-height: 2.7
@@ -401,9 +401,6 @@ body
     padding 8px 0
     &:first-child
       border-top none
-    a 
-      &:hover 
-        text-decoration none
     .title
       white-space: nowrap
       line-height: 1.8
@@ -412,7 +409,7 @@ body
       text-overflow: ellipsis
       font-size: 14px
       color: #40759b
-      &:hover 
+      &:hover,&:active
         text-decoration underline
     .time
       text-align: right
@@ -447,10 +444,6 @@ body
     font-weight bold
     font-size 22px 
     line-height: 1.1
-    a
-      color: #40759B
-      &:hover 
-        text-decoration underline
   .post-meta
     padding: 0
     margin: 10px 0 0
@@ -483,7 +476,7 @@ body
       font-family: "iconfont"!important
       content: "\e006"
       padding-right: 0.3em
-    &:hover
+    &:hover,&:active
       border-bottom 1px solid #40759b
   .disqus-comment-count
     padding: 0
@@ -496,7 +489,7 @@ body
       font-family: "iconfont"!important
       content: "\f008"
       padding-right: 0.3em
-    &:hover
+    &:hover,&:active
       color: #40759b
   .post-content
     clear: left
@@ -527,11 +520,8 @@ body
         background: #eee
         font-size: .95em
       a
-        color: #40759b
         padding-bottom: 2px
         word-break: break-all
-        &:hover
-          text-decoration: underline
       .caption
         color: #40759b
         display: block
@@ -571,11 +561,8 @@ body
       ul
         margin: 0
       a 
-        color: #40759b
         padding-bottom: 2px
         word-break: break-all
-        &:hover
-          text-decoration: underline
     :last-child
       margin-bottom: 0
   .tags
@@ -634,8 +621,9 @@ body
       position: relative
       a
         color #333
-        &:hover
+        &:hover,&:active
           color: #5483B1
+          text-decoration: none
         &:before
           content:''
           position: absolute
@@ -661,7 +649,7 @@ body
           background: #D8E2EB
           -webkit-box-shadow: 0 0 3px #D8E2EB inset
           box-shadow: 0 0 3px #D8E2EB inset
-    li:hover 
+    li:hover,li:active
       a:before 
         border 1px solid #5483B1
         -webkit-box-shadow: 0 0 4px #5483B1 inset
@@ -718,8 +706,6 @@ body
     a
       color: #66ccff
       margin 0 6px
-      &:hover
-        text-decoration: underline
     span
       margin 0 6px 
     .fa 
@@ -728,17 +714,17 @@ body
       padding 0 2px
       &.fa-github 
         color #000
-        &:hover 
+        &:hover,&:active
           color:#4078c0
           text-decoration: none
       &.fa-weibo
         color: #E6162D
-        &:hover 
+        &:hover,&:active
           color #FF9933
           text-decoration: none
       &.fa-email
         color: #756E78
-        &:hover 
+        &:hover,&:active
           color #000
           text-decoration: none
     p
@@ -848,7 +834,7 @@ body
     padding: 5px 5px
   .current
     background: #FFF
-    &:hover
+    &:hover,&:active
       border-bottom-color: #adc2d7
   .page-number,.extend
     display: inline-block
@@ -862,7 +848,8 @@ body
     -webkit-box-shadow: 1px 2px 3px #adc2d7
     box-shadow: 1px 2px 3px #adc2d7
     border: 1px solid #adc2d7
-    &:hover
+    &:hover,&:active
+      text-decoration: none
       border-bottom-color: #FFF
     &.prev:before
         font-family: "iconfont"!important
@@ -895,7 +882,8 @@ body
     &:after
       content: ">>"
       padding-left: 0.15em
-    &:hover
+    &:hover,&active
+      text-decoration: none
       -webkit-box-shadow: 0 -1px 4px #5483B1 inset
       box-shadow: 0 -1px 4px #5483B1 inset   
 /* post navigator*/
@@ -919,8 +907,9 @@ body
         font-family: "iconfont"!important
         content: "\e00f"
         padding-right: 0.3em
-    &:hover
+    &:hover,&:active
       color: #40759b
+      text-decoration: none
     &.next
       float: right
       &:after
@@ -1030,9 +1019,11 @@ table
     border-bottom: 1px dashed #d8e2eb !important
 #ds-reset
   a
-    &:hover
+    &:hover,&:active
       color: #40759b !important
+      text-decoration: none
   .ds-post-button 
     background: #40759b !important
-    &:hover 
+    &:hover,&:active
+      text-decoration: none
       background: #608CB7 !important
