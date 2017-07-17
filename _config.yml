@@ -65,7 +65,7 @@ disqus: ## Your disqus_shortname, e.g. username
 
 # About page 
 about:
-  photo_path: img/self-photo-20170129a-230x230.png
+  photo_path: img/self-photo-20170717a_512x512.png
   photo_url: ## Your photo e.g. http://obzf7z93c.bkt.clouddn.com/themeauthor.jpg
   email: ## Your email e.g.  zhenggchaoo@gmail.com
   email_image_path: img/hogehoge-g-20170201a.png
