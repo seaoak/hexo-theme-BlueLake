@@ -10,9 +10,9 @@ block content
   .post
     h1.post-title= page.title
     .post-meta= page.date.format(config.date_format)
-      if false && page.updated && page.updated.format() !== page.date.format()
+      if page.updated && page.updated.format() !== page.date.format()
         = ' '
-        a.lastmodified(href=('https:////github.com/quercus2011/site/' + '/commits/' + 'master' + '/' + config.source_dir + '/' + page.source).replace(/\/\//g, '/'))
+        a.lastmodified(href=('https:////github.com/seaoak/blox_with_hexo/' + '/commits/' + 'master' + '/' + config.source_dir + '/' + page.source).replace(/\/\//g, '/'))
           = '(updated: ' + page.updated.format(config.date_format) + ')'
       if page.categories.length > 0
         span= ' | '
