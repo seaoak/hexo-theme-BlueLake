@@ -15,7 +15,7 @@ block content
         a(href=url_for(post.path))
           +title(post)
       .post-meta= post.date.format(config.date_format)
-        if post.updated && post.updated.format() !== post.date.format()
+        if false && post.updated && post.updated.format() !== post.date.format()
           = ' '
           a.lastmodified(href=('https:////github.com/quercus2011/site/' + '/commits/' + 'master' + '/' + config.source_dir + '/' + post.source).replace(/\/\//g, '/'))
             = '(updated: ' + post.updated.format(config.date_format) + ')'
